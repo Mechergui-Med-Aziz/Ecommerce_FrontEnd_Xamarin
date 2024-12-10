@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerceApp.Pages.ProductsPageAdmin">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView x:Name="ProductsListView" ItemSelected="OnProductSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Nom du produit -->
+                                <Label Text="{Binding name}" Grid.Column="0" VerticalOptions="Center" />
+
+                                <!-- Prix formaté -->
+                                <Label Text="{Binding price, StringFormat='{0:C}'}" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"/>
+
+                                <!-- Bouton Modifier -->
+                                <Button Text="Edit" CommandParameter="{Binding .}" 
+                                        Clicked="OnEditProductClicked" 
+                                        Grid.Column="2" 
+                                        WidthRequest="60" 
+                                        HeightRequest="30" 
+                                        FontSize="Small" 
+                                        CornerRadius="15" />
+
+                                <!-- Bouton Supprimer -->
+                                <Button Text="Delete" CommandParameter="{Binding .}" 
+                                        Clicked="OnDeleteProductClicked" 
+                                        Grid.Column="3" 
+                                        WidthRequest="75" 
+                                        HeightRequest="30" 
+                                        FontSize="Small" 
+                                        BackgroundColor="Red" 
+                                        TextColor="White" 
+                                        CornerRadius="15" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Bouton Ajouter un nouveau produit -->
+            <Button Text="Add New Product" Clicked="OnAddProductClicked" BackgroundColor="Green" TextColor="White" HeightRequest="50" />
+            <Button Text="Se déconnecter" 
+                Clicked="Disconnect" 
+                BackgroundColor="#d9534f" 
+                TextColor="White"
+                CornerRadius="5"
+                HeightRequest="50"
+                Margin="0,0,0,10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

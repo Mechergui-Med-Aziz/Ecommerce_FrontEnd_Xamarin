@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerceApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Définissez ici vos styles globaux -->
+            <Color x:Key="PrimaryColor">#007bff</Color>
+            <Color x:Key="SecondaryColor">#6c757d</Color>
+            <Color x:Key="AccentColor">#28a745</Color>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource SecondaryColor}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

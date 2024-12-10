@@ -1,0 +1,35 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ECommerceApp.Pages.CartPage" Title="Your Cart" BackgroundColor="#f5f5f5">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="20">
+            <!-- Cart Items List -->
+            <Frame CornerRadius="10" HasShadow="True" BackgroundColor="White" Padding="10">
+                <ListView x:Name="CartItemsListView" SeparatorVisibility="Default" SeparatorColor="#E0E0E0" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Spacing="10">
+                                    <!-- Product Name -->
+                                    <Label Text="{Binding Product.name}" FontAttributes="Bold" FontSize="Medium" TextColor="#333" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    <!-- Quantity Controls -->
+                                    <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Button Text="-" Clicked="OnDecrementClicked" CommandParameter="{Binding}" BackgroundColor="#0078D7" TextColor="White" CornerRadius="5" WidthRequest="40" HeightRequest="40"/>
+                                        <Label Text="{Binding Quantity}" FontSize="Medium" TextColor="#777" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" HorizontalTextAlignment="Center"/>
+                                        <Button Text="+" Clicked="OnIncrementClicked" CommandParameter="{Binding}" BackgroundColor="#0078D7" TextColor="White" CornerRadius="5" WidthRequest="40" HeightRequest="40"/>
+                                    </StackLayout>
+                                    <!-- Price -->
+                                    <Label Text="{Binding Product.price, StringFormat='{0:C}'}" FontAttributes="Bold" TextColor="#0078D7" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    <!-- Remove Button -->
+                                    <Button Text="Remove" Clicked="OnRemoveClicked" CommandParameter="{Binding}" BackgroundColor="#d9534f" TextColor="White" CornerRadius="5" FontAttributes="Bold" WidthRequest="80" HorizontalOptions="End" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <!-- Total Price -->
+            <Label x:Name="TotalPriceLabel" FontSize="Large" FontAttributes="Bold" HorizontalOptions="End" TextColor="#0078D7"/>
+            <!-- Checkout Button -->
+            <Button Text="Proceed to Checkout" Clicked="OnCheckoutClicked" BackgroundColor="#0078D7" TextColor="White" CornerRadius="8" HeightRequest="50" FontAttributes="Bold" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

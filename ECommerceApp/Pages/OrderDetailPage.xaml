@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerceApp.Pages.OrderDetailPage"
+             Title="Order Detail">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label x:Name="OrderIdLabel" FontSize="Large" FontAttributes="Bold" />
+            <Label x:Name="OrderDateLabel" />
+            <Label x:Name="TotalAmountLabel" FontAttributes="Bold" />
+            <ListView x:Name="OrderItemsListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Product.Name}" FontAttributes="Bold" />
+                                <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" />
+                                <Label Text="{Binding Product.Price, StringFormat='Price: {0:C}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
